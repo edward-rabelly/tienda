@@ -1,0 +1,87 @@
+<div class="compra-container">
+
+  <h1>🛒 Realizar compra</h1>
+
+  <p>Completa los datos para realizar tu compra.</p>
+
+  <div *ngIf="producto" class="producto-seleccionado">
+
+    <h2>{{ producto.nombre }}</h2>
+
+    <p>{{ producto.descripcion }}</p>
+
+    <p>
+      <strong>Precio:</strong>
+      ${{ producto.precio }}
+    </p>
+
+    <p>
+      <strong>Stock disponible:</strong>
+      {{ producto.stock }}
+    </p>
+
+    <p>
+      <strong>Categoría:</strong>
+      {{ producto.categoria }}
+    </p>
+
+  </div>
+
+  <hr>
+
+  <label>Nombre completo</label>
+
+  <input
+    type="text"
+    [(ngModel)]="nombre"
+    placeholder="Ingresa tu nombre"
+  >
+
+  <label>Correo electrónico</label>
+
+  <input
+    type="email"
+    [(ngModel)]="correo"
+    placeholder="ejemplo@correo.com"
+  >
+
+  <label>Cantidad</label>
+
+  <input
+    type="number"
+    [(ngModel)]="cantidad"
+    min="1"
+  >
+
+  <label>Método de pago</label>
+
+  <select [(ngModel)]="metodoPago">
+
+    <option value="">Selecciona un método</option>
+
+    <option value="Tarjeta">Tarjeta</option>
+
+    <option value="PSE">PSE</option>
+
+    <option value="Nequi">Nequi</option>
+
+    <option value="Daviplata">Daviplata</option>
+
+  </select>
+
+  <button
+    type="button"
+    (click)="confirmarCompra()"
+  >
+    Confirmar compra
+  </button>
+
+  @if (mensaje) {
+  <div class="mensaje-confirmacion">
+    {{ mensaje }}
+  </div>
+  }
+
+</div>
+
+

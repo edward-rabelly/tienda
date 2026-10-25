@@ -1,0 +1,25 @@
+<div style="background: red; color: white; padding: 20px; position: fixed; top: 0; left: 0; z-index: 99999;">
+  <h2>SI VES ESTO - ANGULAR FUNCIONA</h2>
+  <p>App está cargada</p>
+</div>
+
+<router-outlet></router-outlet>
+
+<div style="position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
+  <button (click)="openModal('calculadora')"
+          style="width: 60px; height: 60px; border-radius: 50%; background: blue; color: white; font-size: 30px; border: none; cursor: pointer; margin-bottom: 10px;">
+    🧮
+  </button>
+  <button (click)="openModal('juego')"
+          style="width: 60px; height: 60px; border-radius: 50%; background: green; color: white; font-size: 30px; border: none; cursor: pointer;">
+    🚀
+  </button>
+</div>
+
+<div *ngIf="modalAbierto" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; display: flex; justify-content: center; align-items: center;">
+  <div style="background: white; padding: 20px; border-radius: 10px;">
+    <button (click)="cerrarModal()" style="margin-bottom: 10px;">Cerrar</button>
+    <iframe *ngIf="tipoModal === 'calculadora'" src="assets/calculadora.html" style="width: 320px; height: 450px; border: none;"></iframe>
+    <iframe *ngIf="tipoModal === 'juego'" src="assets/galaga.html" style="width: 640px; height: 680px; border: none;"></iframe>
+  </div>
+</div>
